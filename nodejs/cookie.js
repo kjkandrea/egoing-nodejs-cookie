@@ -11,7 +11,8 @@ http.createServer((req, res) => {
   res.writeHead(200, {
     'Set-Cookie': [
       `yummy_cookie=choco;  Max-Age=${60*60*24*30}`,
-      'testy_cookie=strawberry'
+      'testy_cookie=strawberry; Secure',
+      'doggys_cookie=meat; HttpOnly'
     ]
   });
   res.end('Cookie!')
