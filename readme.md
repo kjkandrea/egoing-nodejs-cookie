@@ -113,7 +113,7 @@ res.writeHead(200, {
 
 ### 쿠키 보안 옵션 (Secure, HttpOnly)
 
-Secure 옵션을 주면 해당 쿠키는 HTTPS 프로토콜 상에서 암호화된(encrypted ) 요청일 경우에만 전송된다.
+Secure 옵션을 주면 해당 쿠키는 HTTPS 프로토콜 상에서 암호화된(encrypted) 요청일 경우에만 전송된다.
 
 > Secure일지라도 민감한 정보는 절대 쿠키에 저장되면 안됩니다, 본질적으로 안전하지 않고 이 플래그가 당신에게 실질적인 보안(real protection)를 제공하지 않기 때문입니다. 크롬52 혹은 파이어폭스52로 시작한다면, 안전하지 않은 사이트(http:) 는 쿠키에 Secure 설정을 지시할 수 없습니다. - MDN
 
@@ -126,7 +126,7 @@ res.writeHead(200, {
 });
 ```
 
-HttpOnly 옵션을 주면 해당 쿠키는 서버에게 전송되기만 한다. HttpOnly 쿠키는 JavaS cript에서 `document.cookie` 로 접근할 수 없다.
+HttpOnly 옵션을 주면 해당 쿠키는 서버에게 전송되기만 한다. HttpOnly 쿠키는 JavaScript에서 `document.cookie` 로 접근할 수 없다.
 
 ``` javascript
 res.writeHead(200, {
