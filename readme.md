@@ -202,3 +202,7 @@ http.createServer((req, res) => {
 ### 로그인 상태를 리턴하는 authIsOwner() 함수 생성
 
 ### 로그인 상태를 표시하는 authStatusUI() 함수 생성
+
+### 로그아웃 구현
+
+### Create, Update, Delete에 authIsOwner() 조건 부여
