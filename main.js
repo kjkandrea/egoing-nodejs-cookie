@@ -192,22 +192,39 @@ var app = http.createServer(function(request,response){
           body = body + data;
       });
       request.on('end', function(){
-          var post = qs.parse(body);
-          if (post.email === 'andrea@gmail.com' && post.password === '1111') {
-            response.writeHead(302, {
-              'Set-Cookie': [
-                `email=${post.email}`,
-                `password=${post.password}`,
-                'nickname=mummu'
-              ],
-              Location: '/'
-            })
-            response.end();
-          } else {
-            response.end('Who are you?');
-          }
-
+        var post = qs.parse(body);
+        if (post.email === 'andrea@gmail.com' && post.password === '1111') {
+          response.writeHead(302, {
+            'Set-Cookie': [
+              `email=${post.email}`,
+              `password=${post.password}`,
+              'nickname=mummu'
+            ],
+            Location: '/'
+          })
           response.end();
+        } else {
+          response.end('Who are you?');
+        }
+
+        response.end();
+      });
+    } else if (pathname === '/logout_process') {
+      var body = '';
+      request.on('data', function(data){
+          body = body + data;
+      });
+      request.on('end', function(){
+        cookies = {};
+        response.writeHead(302, {
+          'Set-Cookie': [
+            `email=; Max-Age=0`,
+            `password=; Max-Age=0`,
+            'nickname=; Max-Age=0'
+          ],
+          Location: '/'
+        });
+        response.end();
       });
     } else {
       response.writeHead(404);
