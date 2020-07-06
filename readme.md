@@ -2,6 +2,12 @@
 
 ## 쿠키 란?
 
+[MDN : HTTP 쿠키](https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies)
+
+### 세션 쿠키 (Session cookies)
+
+### 영속적인 쿠키 (Permanent cookies)
+
 ## 실습
 
 ### cookie.js
@@ -87,3 +93,22 @@ http.createServer((req, res) => {
 ```
 
 쿠키들이 키, 값 쌍의 객체로 반환된것을 볼 수 있다.
+
+### 쿠키의 수명 부여 (Max-Age)
+
+쿠키를 생성할때 초코 쿠키(`yummy_cookie=choco`)의 유통기한을 30일로 설정해보겠다. 유통기한이 지난 쿠키는 사라진다.
+
+``` javascript
+res.writeHead(200, {
+  'Set-Cookie': [
+    `yummy_cookie=choco;  Max-Age=${60*60*24*30}`,
+    'testy_cookie=strawberry'
+  ]
+});
+```
+
+초코 쿠키를 생성한 후 브라우저에서 해당 쿠키의 정보를 확인해보면 만료날짜(Expires)가 생긴것을 볼 수 있다.
+
+![cookie](https://user-images.githubusercontent.com/32591477/86558331-09e09680-bf94-11ea-9b3c-fa2235c3f397.png)
+
+
