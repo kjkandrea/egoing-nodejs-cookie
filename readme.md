@@ -198,3 +198,5 @@ http.createServer((req, res) => {
 ### login 라우트에 Form 생성
 
 ### login_process 액션 및 더미 쿠키 굽기
+
+### 로그인 상태를 리턴는 authIsOwner() 함수 생성
