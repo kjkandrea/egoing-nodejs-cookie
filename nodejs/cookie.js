@@ -12,7 +12,8 @@ http.createServer((req, res) => {
     'Set-Cookie': [
       `yummy_cookie=choco;  Max-Age=${60*60*24*30}`,
       'testy_cookie=strawberry; Secure',
-      'doggys_cookie=meat; HttpOnly'
+      'doggys_cookie=meat; HttpOnly',
+      'voice_actor_cookie=haebogoyang; Path=/cookie'
     ]
   });
   res.end('Cookie!')

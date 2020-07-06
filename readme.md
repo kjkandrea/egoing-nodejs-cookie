@@ -139,3 +139,20 @@ res.writeHead(200, {
 ```
 
 ![httponly-cookie](https://user-images.githubusercontent.com/32591477/86559359-b459b900-bf96-11ea-9fe8-54e91dbfc7d8.png)
+
+### 쿠키의 스코프 (Path)
+
+`Path`를 이용하여 서브 라우터에 쿠키를 배치할 수 있다.
+
+``` javascript
+res.writeHead(200, {
+  'Set-Cookie': [
+    `yummy_cookie=choco;  Max-Age=${60*60*24*30}`,
+    'testy_cookie=strawberry; Secure',
+    'doggys_cookie=meat; HttpOnly',
+    'voice_actor_cookie=haebogoyang; Path=/cookie'
+  ]
+});
+```
+
+스코프를 할당하면 브라우저는 해당 스코프에서만 쿠키를 서버에 전송한다.
