@@ -199,4 +199,6 @@ http.createServer((req, res) => {
 
 ### login_process 액션 및 더미 쿠키 굽기
 
-### 로그인 상태를 리턴는 authIsOwner() 함수 생성
+### 로그인 상태를 리턴하는 authIsOwner() 함수 생성
+
+### 로그인 상태를 표시하는 authStatusUI() 함수 생성
