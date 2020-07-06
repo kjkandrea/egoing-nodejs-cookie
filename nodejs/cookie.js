@@ -13,7 +13,8 @@ http.createServer((req, res) => {
       `yummy_cookie=choco;  Max-Age=${60*60*24*30}`,
       'testy_cookie=strawberry; Secure',
       'doggys_cookie=meat; HttpOnly',
-      'voice_actor_cookie=haebogoyang; Path=/cookie'
+      'voice_actor_cookie=haebogoyang; Path=/cookie',
+      'youtuber_cookie=haebogoyang; Domain=wireframe.kr'
     ]
   });
   res.end('Cookie!')

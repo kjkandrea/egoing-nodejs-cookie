@@ -101,8 +101,7 @@ http.createServer((req, res) => {
 ``` javascript
 res.writeHead(200, {
   'Set-Cookie': [
-    `yummy_cookie=choco;  Max-Age=${60*60*24*30}`,
-    'testy_cookie=strawberry'
+    `yummy_cookie=choco;  Max-Age=${60*60*24*30}`
   ]
 });
 ```
@@ -120,7 +119,6 @@ Secure 옵션을 주면 해당 쿠키는 HTTPS 프로토콜 상에서 암호화�
 ``` javascript
 res.writeHead(200, {
   'Set-Cookie': [
-    `yummy_cookie=choco;`,
     'testy_cookie=strawberry; Secure'
   ]
 });
@@ -131,8 +129,6 @@ HttpOnly 옵션을 주면 해당 쿠키는 서버에게 전송되기만 한다. 
 ``` javascript
 res.writeHead(200, {
   'Set-Cookie': [
-    `yummy_cookie=choco;  Max-Age=${60*60*24*30}`,
-    'testy_cookie=strawberry; Secure',
     'doggys_cookie=meat; HttpOnly'
   ]
 });
@@ -147,12 +143,21 @@ res.writeHead(200, {
 ``` javascript
 res.writeHead(200, {
   'Set-Cookie': [
-    `yummy_cookie=choco;  Max-Age=${60*60*24*30}`,
-    'testy_cookie=strawberry; Secure',
-    'doggys_cookie=meat; HttpOnly',
-    'voice_actor_cookie=haebogoyang; Path=/cookie'
+    'voice_actor_cookie=haebogoyang; Path=/cookie',
+
   ]
 });
 ```
 
 스코프를 할당하면 브라우저는 해당 스코프에서만 쿠키를 서버에 전송한다.
+
+### 쿠키의 스코프 (Domain)
+
+`Domain`을 이용하여 쿠키를 배치할 수 있다. 마찬가지로 해당 도메인에서만 서버에 전송된다.
+
+``` javascript
+res.writeHead(200, {
+  'Set-Cookie': [
+    'youtuber_cookie=haebogoyang; Domain=wireframe.kr'
+  ]
+});
