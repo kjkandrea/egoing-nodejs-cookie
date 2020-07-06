@@ -13,6 +13,7 @@ function authIsOwner (request, response) {
   if(request.headers.cookie){
     cookies = cookie.parse(request.headers.cookie)
   }
+  // 이것은 매우 위험한 코드입니다. 현실에서는 쿠키가 아닌 세션 방법을 사용해야 합니다.
   if(cookies.email === 'andrea@gmail.com' && cookies.password === '1111') {
     isOwner = true;
   }
@@ -174,7 +175,7 @@ var app = http.createServer(function(request,response){
         response.end('Login required!')
         return false;
       }
-      
+
       var body = '';
       request.on('data', function(data){
           body = body + data;
