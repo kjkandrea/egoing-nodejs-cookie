@@ -158,6 +158,29 @@ var app = http.createServer(function(request,response){
         response.writeHead(200);
         response.end(html);
       });
+    } else if (pathname === '/login_process') {
+      var body = '';
+      request.on('data', function(data){
+          body = body + data;
+      });
+      request.on('end', function(){
+          var post = qs.parse(body);
+          if (post.email === 'andrea@gmail.com' && post.password === '1111') {
+            response.writeHead(302, {
+              'Set-Cookie': [
+                `email=${post.email}`,
+                `password=${post.password}`,
+                'nickname=mummu'
+              ],
+              Location: '/'
+            })
+            response.end();
+          } else {
+            response.end('Who are you?');
+          }
+
+          response.end();
+      });
     } else {
       response.writeHead(404);
       response.end('Not found');
