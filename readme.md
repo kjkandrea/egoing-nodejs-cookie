@@ -8,7 +8,7 @@
 
 ### 영속적인 쿠키 (Permanent cookies)
 
-## 실습
+## 개념 이해 : 종류별 쿠키 생성하기
 
 ### cookie.js
 
@@ -161,3 +161,36 @@ res.writeHead(200, {
     'youtuber_cookie=haebogoyang; Domain=wireframe.kr'
   ]
 });
+```
+
+### 쿠키 테스트 정리
+
+위에서 생성해본 모든 쿠키를 생성하는 코드이다.
+
+``` javascript
+const http = require('http')
+const cookie = require('cookie')
+
+http.createServer((req, res) => {
+  let cookies = {}
+  if(req.headers.cookie !== undefined) {
+    cookies = cookie.parse(req.headers.cookie)
+  }
+  console.log(cookies)
+
+  res.writeHead(200, {
+    'Set-Cookie': [
+      `yummy_cookie=choco;  Max-Age=${60*60*24*30}`,
+      'testy_cookie=strawberry; Secure',
+      'doggys_cookie=meat; HttpOnly',
+      'voice_actor_cookie=haebogoyang; Path=/cookie',
+      'youtuber_cookie=haebogoyang; Domain=wireframe.kr'
+    ]
+  });
+  res.end('Cookie!')
+}).listen(3000)
+```
+
+## 더미로그인 만들기
+
+실 서비스에 사용하면 얼마든지 탈취될 수 있는 단순 쿠키 개념 이해를 하기위한 더미 로그인을 만들어보자.
