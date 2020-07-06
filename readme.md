@@ -111,7 +111,7 @@ res.writeHead(200, {
 
 ![cookie](https://user-images.githubusercontent.com/32591477/86558331-09e09680-bf94-11ea-9b3c-fa2235c3f397.png)
 
-### 쿠키 보안 (Secure, HttpOnly)
+### 쿠키 보안 옵션 (Secure, HttpOnly)
 
 Secure 옵션을 주면 해당 쿠키는 HTTPS 프로토콜 상에서 암호화된(encrypted ) 요청일 경우에만 전송된다.
 
@@ -126,7 +126,7 @@ res.writeHead(200, {
 });
 ```
 
-HttpOnly 옵션을 주면 해당 쿠키는 서버에게 전송되기만 한다. HttpOnly 쿠키는 JavaScript에서 Document.cookie 로 접근할 수 없다.
+HttpOnly 옵션을 주면 해당 쿠키는 서버에게 전송되기만 한다. HttpOnly 쿠키는 JavaS cript에서 `document.cookie` 로 접근할 수 없다.
 
 ``` javascript
 res.writeHead(200, {
@@ -137,3 +137,5 @@ res.writeHead(200, {
   ]
 });
 ```
+
+![httponly-cookie](https://user-images.githubusercontent.com/32591477/86559359-b459b900-bf96-11ea-9fe8-54e91dbfc7d8.png)
